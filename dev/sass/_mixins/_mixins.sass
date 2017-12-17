@@ -1,0 +1,112 @@
+// Width
+=r($width)
+  @media only screen and (max-width: $width+ "px")
+    @content
+
+=rmin($width)
+  @media only screen and (min-width: $width+ "px")
+    @content
+
+// Height
+=rh($height)
+  @media only screen and (max-height: $height + "px")
+    @content
+
+=rhmin($height)
+  @media only screen and (min-height: $height + "px")
+    @content
+
+
+//Abbreviations
+=lg
+  +r(1200)
+    @content
+
+=md
+  +r(992)
+    @content
+
+=sm
+  +r(768)
+    @content
+
+=xs
+  +r(480)
+    @content
+
+
+// Clearfix
+=clr
+  &::after
+    content: ""
+    display: block
+    clear: both
+
+
+// Placeholder color
+=placeholder($color)
+  &:-moz-placeholder, /* Mozilla Firefox 4 to 18 */
+  &::-moz-placeholder /* Mozilla Firefox 19+ */
+    color: $color
+    opacity: 1
+  &::-webkit-input-placeholder /* WebKit browsers */
+    color: $color
+  &:-ms-input-placeholder /* Internet Explorer 10+ */
+    color: $color
+
+// Png sprite
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SASS
+//
+// @include sprites($spritesheet-sprites)
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)
+
+// Retina(2x)
+=retina
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi)
+    @content
+//  background-image: url("imgs/background-2x.png")
+
+
+// posa center
+=vcenter
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+
+
+//Simple gradient
+
+// top to bottom
+=g($color1, $color2)
+  background-image: linear-gradient($color1, $color2)
+
+// left to right
+=gh($color1, $color2)
+  background-image: linear-gradient(left, $color1, $color2)

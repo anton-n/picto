@@ -1,0 +1,349 @@
+html
+	box-sizing: border-box
+
+*, *::before, *::after
+	box-sizing: inherit
+
+html, body
+	height: 100%
+
+body
+	font-family: $default-font
+	font-size: 16px
+	line-height: 1
+	color: #000
+	overflow-x: hidden
+	background-color: #f3f2ed
+
+::selection
+	background: #b3d4fc
+	text-shadow: none
+
+img
+	display: block
+	max-width: 100%
+	height: auto
+
+h1, h2, h3, h4, h5, h6
+	margin: 0
+
+p
+	margin: 0
+
+ul,ol
+	margin: 0
+	padding: 0
+
+ul li
+	list-style: none
+
+textarea
+	resize: none
+
+.container
+	max-width: rem(600)
+	margin: 0 auto
+	+r(640)
+		margin: 0 20px
+
+.container-inner
+	max-width: rem(540)
+	margin: 0 auto
+
+.header .container
+	background-color: #343538
+	+clr
+
+.header .container-inner
+	min-height: rem(88)
+	padding-top: rem(27)
+	+clr
+
+.header__logo
+	float: left
+	+r(480)
+		float: none
+		text-align: center
+
+.header__trouble
+	float: right
+	+r(480)
+		float: none
+		text-align: center
+
+.logo__link
+	font-size: em(42)
+	font-weight: 700
+	color: #fff
+	text-decoration: none
+	text-transform: uppercase
+
+.trouble__text
+	font-size: em(13)
+	line-height: 4.6
+	font-weight: 400
+	color: #b3b3b3
+
+.trouble__link
+	color: #fff
+	text-decoration: none
+	transition: .25s linear
+	&:hover
+		color: #ccc
+
+.pretty-image__pic
+	height: rem(280)
+	background-position: 50% 0
+	background-repeat: no-repeat
+	background-size: cover
+	+r(600)
+		// background-position: 0 0
+
+.default-section
+	margin-top: rem(15)
+	background-color: #fff
+	padding: rem(28) 0
+	&_dark
+		background-color: #343538
+		min-height: rem(120)
+
+.container .default-section
+	&:first-child
+		margin-top: 0
+
+.blog
+	text-align: left
+	+r(480)
+		text-align: center
+
+.glob-title
+	font-size: em(18)
+	font-weight: 600
+	color: #343538
+	margin-bottom: rem(20)
+
+.glob-text
+	font-size: em(14)
+	line-height: 1.8
+	font-weight: 400
+	color: #a7a7a7
+	margin-bottom: rem(20)
+
+.button
+	display: inline-block
+	text-align: center
+	max-width: rem(100)
+	width: 100%
+	height: rem(36)
+	line-height: rem(36)
+	background-color: #343538
+	border-radius: 25px
+	color: #fff
+	text-decoration: none
+	transition: .5s linear
+	cursor: pointer
+	&:hover
+		background-color: #111
+
+.advantages
+	text-align: center
+
+.advantage
+	display: inline-block
+	max-width: rem(140)
+	width: 100%
+	margin-right: rem(40)
+	&:nth-child(3n)
+		margin-right: 0
+	+r(550)
+		display: block
+		margin: 0 auto
+		&:nth-child(3n)
+			margin-right: auto
+
+
+.advantage__title
+	position: relative	
+	padding-top: rem(75)
+	&:before
+		content: ''
+		position: absolute
+		left: 50%
+		top: 0
+		transform: translate(-50%, 0)
+.advantage__title.gear:before
+	+sprite($s-gear)
+.advantage__title.mail:before
+	+sprite($s-mail)
+.advantage__title.tool:before
+	+sprite($s-tool)
+
+.twice
+	+clr
+
+.twice__text
+	width: 50%
+	float: left
+	padding: 0 5%
+
+.twice__title
+	// padding: 0 5%
+
+.twice__img
+	min-height: rem(200)
+	max-height: rem(200)
+	background-repeat: no-repeat
+	background-position: 50% 50%
+	background-size: cover
+	width: 50%
+	float: left
+
+.work
+	text-align: center
+
+.work__items
+	+clr
+
+.work__item
+	min-height: rem(175)
+	max-height: rem(175)
+	background-repeat: no-repeat
+	background-position: 50% 50%
+	background-size: cover
+	width: 33.33%
+	float: left
+	position: relative
+	+r(640)
+		width: 50%
+	+r(500)
+		min-height: rem(125)
+		max-height: rem(125)
+	&:before
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		content: ''
+		background-color: rgba(#fff, .25)
+	&:hover:before
+		display: none
+	+r(500)
+
+
+.sale
+	text-align: center
+	font-weight: 600
+	color: #fff
+	line-height: 2
+
+.more-blog__text
+	margin-bottom: 0
+
+.check
+	text-align: center
+
+.check__img
+	height: rem(240)
+	background-repeat: no-repeat
+	background-position: 50% 0
+	background-size: cover
+	+r(640)
+		max-width: rem(320)
+		margin: 0 auto
+
+.footer .container
+	background-color: #343538
+	min-height: rem(180)
+
+.footer
+	text-align: center
+	margin-top: rem(15)
+
+.footer__social
+	max-width: rem(400)
+	width: 100%
+	margin: 0 auto
+	padding: rem(25) 0
+	text-align: center
+	+r(360)
+		max-width: rem(200)
+
+.footer__item
+	display: inline-block
+	margin-right: rem(7)
+	margin-bottom: rem(2)
+	+r(440)
+		margin-right: 0
+	&:last-child
+		margin-right: 0
+
+.footer__soc
+	display: block
+	width: rem(35)
+	height: rem(35)
+	background-color: #fff
+	border-radius: 50%
+	transition: .5s linear
+	position: relative
+	&:before
+		position: absolute
+		left: 50%
+		top: 50%
+		transform: translate(-50%,-50%)
+		content: ''
+	&:hover
+		background-color: rgba(#fff, .35)
+		box-shadow: inset 0 0 10px #111
+
+.footer__soc.tw:before
+	+sprite($s-tw)
+.footer__soc.fb:before
+	+sprite($s-fb)
+.footer__soc.no:before
+	+sprite($s-no)
+.footer__soc.pi:before
+	+sprite($s-pi)
+.footer__soc.g:before
+	+sprite($s-g)
+.footer__soc.dr:before
+	+sprite($s-dr)
+.footer__soc.in:before
+	+sprite($s-in)
+.footer__soc.m:before
+	+sprite($s-m)
+
+
+.footer__li
+	display: inline-block
+	position: relative
+	padding-right: rem(5)
+	&:before
+		position: absolute
+		top: 2px
+		left: -5px
+		width: rem(2)
+		height: rem(14)
+		background-color: #79797b
+		content: '' 
+	&:first-child:before
+		display: none
+
+.footer__copyright,
+.footer__link
+	font-size: em(14)
+	color: #79797b
+	text-decoration: none
+
+.footer__link
+	transition: .25s linear
+	&:hover
+		color: #fff
+
+.footer__copyright
+	display: inline-block
+	margin-bottom: rem(25)
+
+.header,
+.footer
+	background-color: #e0dfda
